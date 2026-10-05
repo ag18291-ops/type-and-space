@@ -1,0 +1,44 @@
+/* Typography tokens — Marketing mode. Change values, keep names.
+   L = body size × body leading. Spacing is derived from L so C1 holds. */
+:root {
+  /* type */
+  --fs-body: 19px;
+  --lh-body: 1.45;             /* ≥ 1.45 needs --gap-para ≥ 0.5 L */
+  --fs-small: 13px;            /* captions, tags (≈ 0.7–0.75 × body) */
+  --fs-sub: 28px;              /* subhead ≈ 0.45 × display on a compound heading */
+  --fs-display: clamp(40px, 5.5vw, 72px); /* 2.5–4 × body; ≤ 3 lines in its column. Fixed artboards (poster, email): set px explicitly, same rule */
+  --fs-factoid: 72px;          /* number ≈ 4–6 × its caption */
+  --lh-display: 1.05;
+  --lh-heading: 1.15;
+  --fw-heading: 700;
+  --tag-tracking: 0.08em;      /* small uppercase tags/labels: 0.06–0.1 em (ADAPTED); never track lowercase */
+  --track-caps-display: 0.18em;/* display caps plates: 0.13–0.3 em; word space must exceed it, line gap must exceed it */
+
+  /* typeface roles: at most two families (see references/06-typeface-style.md). System stacks; swap for brief fonts */
+  --font-text: "Iowan Old Style", "Charter", Georgia, "Times New Roman", serif;           /* reading / display serif */
+  --font-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* labels, tables, controls, h3 */
+  --font-numerals: var(--font-ui);                                                        /* factoids, prices: same family as neighbours */
+
+  /* L and the margin unit */
+  --L: calc(var(--fs-body) * var(--lh-body));
+  --u: var(--L);               /* left margin */
+
+  /* gaps */
+  --gap-para: calc(var(--L) * 0.6);          /* accepted 0.5–0.9 L */
+  --gap-h-after: calc(var(--L) * 0.5);       /* heading nearer its text than the previous block */
+  --gap-layer: calc(var(--L) * 3);           /* between sandwich layers, full-width web page (2.4–3 L) */
+  --gap-layer-compact: calc(var(--L) * 1.5); /* constrained formats: email (≤ 600 px), poster, slide */
+
+  /* modules: left u : top 1.5u : right 2u (ragged text) : bottom 2 × top */
+  --pad-module: calc(var(--u) * 1.5) calc(var(--u) * 2) calc(var(--u) * 3) var(--u);
+
+  /* measure */
+  --measure-display: 14ch;
+  --measure-body: 55ch;
+
+  /* image / overlay */
+  --scrim: linear-gradient(to top, rgb(0 0 0 / .65), rgb(0 0 0 / 0) 60%);
+
+  /* CTA: a rectangle in a strategic corner, one per view */
+  --cta-pad: 0.9em 1.8em;
+}

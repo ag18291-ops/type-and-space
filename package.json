@@ -1,0 +1,11 @@
+{
+  "name": "type-and-space",
+  "version": "0.6.0",
+  "description": "An agent skill for type, spacing, hierarchy and layout, with a rendered-page lint tool.",
+  "license": "MIT",
+  "private": false,
+  "bin": { "type-and-space-lint": "tools/lint.js" },
+  "files": ["type-and-space", "tools", "README.md", "LICENSE"],
+  "dependencies": { "playwright-core": "^1.40.0" },
+  "keywords": ["agent-skill", "claude-code", "typography", "layout", "design"]
+}

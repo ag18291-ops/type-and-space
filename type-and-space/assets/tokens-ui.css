@@ -1,0 +1,54 @@
+/* Typography tokens — UI mode. Change values, keep names.
+   L = body size × body leading. Spacing is derived from L so C1 holds.
+   App screen: H1 ≥ 1.5 × body, H2 ≈ 1.25 ×. Text page / docs: H1 1.8–2 ×, H2 1.4–1.6 ×. */
+:root {
+  /* type */
+  --fs-body: 15px;
+  --lh-body: 1.45;             /* band 1.4–1.5; ≥ 1.45 needs --gap-para ≥ 0.5 L; leave an existing 1.3–1.65 alone */
+  /* typeface roles: at most two families (see references/06-typeface-style.md). Primary UI faces: Geist, Inter, Funnel Sans; system fallbacks; swap for brief fonts */
+  --font-ui: Geist, Inter, "Funnel Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-text: var(--font-ui);                                                              /* or the serif below for long reading */
+  --font-reading: "Iowan Old Style", "Charter", Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --track-label: 0.06em;       /* small uppercase labels 0.06–0.1 em; never track lowercase; use text-transform, not typed caps */
+  --fs-body-reading: 18px;     /* long-form reading (articles, docs prose): ≥ 17–18 px */
+  --lh-reading: 1.65;          /* 1.55–1.7 */
+  --hyphens-narrow: auto;      /* use ONLY on measures ≤ ~45 ch; leave `hyphens: manual` at 60–70 ch */
+  --fs-small: 12px;            /* captions, labels (≈ 0.75–0.8 × body) */
+  --fs-h3: var(--fs-body);     /* bold at body size, no gap after */
+  --fs-h2: 21px;               /* ≈ 1.4 ×; use 19px (1.25 ×) only on dense app screens */
+  --fs-h1: 28px;               /* ≈ 1.9 ×; page anchor, never below 1.5 × body */
+  --fs-stat: 38px;             /* KPI / stat figure ≥ 2.5 × its label; never smaller than the input */
+  --lh-heading: 1.2;
+  --fw-heading: 600;
+
+  /* L and the margin unit */
+  --L: calc(var(--fs-body) * var(--lh-body));
+  --u: calc(var(--L) * 0.8);   /* left margin; ≥ interline white gap; 0.6–1 L in dense UI */
+
+  /* gaps */
+  --gap-para: calc(var(--L) * 0.5);          /* accepted 0.45–0.9 L */
+  --gap-item: calc(var(--L) * 0.4);          /* extra between list items; feed items ≈ +0.5 line */
+  --gap-h2-before: calc(var(--L) * 1.75);    /* 1.6–2 L */
+  --gap-h-after: var(--gap-para);            /* subheads in running text; heading + subtitle: max(heading line gap, text interline gap), always < gap before */
+  --gap-control: 8px;                        /* ≈ 0.5 line, min 8 px on touch */
+  --gap-label: 6px;                          /* label ABOVE field, 4–8 px, < field-to-next-label gap. Label to the LEFT: gap ≥ 1.5 × field inner padding */
+
+  /* modules: left u : top 1.5u : right u (2u for ragged text) : bottom 2 × top */
+  --pad-module: calc(var(--u) * 1.5) var(--u) calc(var(--u) * 3) var(--u);
+
+  /* measure */
+  --measure: 65ch;
+
+  /* controls */
+  --hit-min: 44px;
+  --control-h: 44px;
+  --control-pad-x: calc(var(--control-h) * 0.5);        /* floor; short labels ≈ 1–1.4 × height */
+  --control-pad-x-short: calc(var(--control-h) * 1);
+  --field-pad-x: 0.65em;                                /* field height ≈ 1.8 em, but ≥ --hit-min on touch */
+
+  /* links */
+  --link: #0b57d0;
+  --link-hover: #b3261e;
+  --link-visited: #6b4fa0;
+}
